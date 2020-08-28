@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 配置文件路径 -->
+	<properties resource="generatorConfig.properties" />
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+		<!-- 批量插入插件 -->
+		<plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>
+		<plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin">
+			<!--
+            开启后可以实现官方插件根据属性是否为空决定是否插入该字段功能
+            ！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！插件默认不开启
+            -->
+			<property name="allowMultiQueries" value="true"/>
+		</plugin>
+		<!-- MySQL分页插件 -->
+		<plugin type="com.itfsw.mybatis.generator.plugins.LimitPlugin">
+			<!-- 通过配置startPage影响Example中的page方法开始分页的页码，默认分页从0开始 -->
+			<property name="startPage" value="0"/>
+		</plugin>
+		<!-- 数据Model链式构建插件 -->
+		<plugin type="com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin"/>
+
+
+
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="false" />
+			<property name="javaFileEncoding" value="UTF-8" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="${jdbc.driver}"
+			connectionURL="${jdbc.url}" userId="${jdbc.username}"
+			password="${jdbc.password}">
+			<!--设置可以获取tables remarks信息 -->
+			<property name="useInformationSchema" value="true" />
+			<!--设置可以获取remarks信息 -->
+			<property name="remarks" value="true" />
+			<property name="nullCatalogMeansCurrent" value="true" />
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator
+			targetPackage="${model.package}" targetProject="${target.project}">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+			<property name="javaExampleTargetPackage"
+				value="${model.package}" />
+			<property name="javaExampleTargetProject"
+				value="${target.project}" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="${xml.package}"
+			targetProject="${xml.target.project}">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="${mapper.package}" targetProject="${target.project}">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- Table -->
+
+
+		<!--<table tableName="device_function" domainObjectName="DeviceFunction">
+			<generatedKey column="device_id,function_id" sqlStatement="Mysql" identity="false" />
+		</table>-->
+
+		<!--<table tableName="device" domainObjectName="Device">-->
+			<!--<generatedKey column="id,host_id" sqlStatement="Mysql" identity="false" />-->
+		<!--</table>-->
+
+		<!--<table tableName="host" domainObjectName="Host">-->
+			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+		<!--</table>-->
+
+		<!--
+				<table tableName="host_user" domainObjectName="HostUser">
+					<generatedKey column="host_id, user_id" sqlStatement="Mysql" identity="false"/>
+				</table>
+		-->
+
+		<!--
+		<table tableName="host_tag" domainObjectName="HostTag">
+        	<generatedKey column="tag_id, host_id" sqlStatement="Mysql" identity="false"/>
+        </table>
+        -->
+
+<!--		<table tableName="host_engineer" domainObjectName="HostEngineer">
+			<generatedKey column="host_id, user_id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+<!--		<table tableName="host_user" domainObjectName="HostUser">
+			<generatedKey column="host_id, user_id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+
+	<!--	<table tableName="trigger_panel" domainObjectName="TriggerPanel">
+			<generatedKey column="id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+<!--		<table tableName="trigger_condition" domainObjectName="TriggerCondition">
+			<generatedKey column="id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+
+<!--		<table tableName="trigger_task" domainObjectName="TriggerTask">
+			<generatedKey column="id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+
+<!--		<table tableName="device" domainObjectName="Device">
+			<generatedKey column="id,host_id" sqlStatement="Mysql" identity="false" />
+		</table>-->
+
+
+<!--		<table tableName="host_tag" domainObjectName="HostTag">
+			<generatedKey column="tag, host_id" sqlStatement="Mysql" identity="false"/>
+		</table>
+
+		<table tableName="device_tag" domainObjectName="DeviceTag">
+			<generatedKey column="tag, device_id" sqlStatement="Mysql" identity="false"/>
+		</table>
+
+		<table tableName="product_tag" domainObjectName="ProductTag">
+			<generatedKey column="tag, product_id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+
+
+<!--		<table tableName="trigger_panel_space" domainObjectName="TriggerPanelSpace">
+			<generatedKey column="panel_id, space_id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+
+
+
+
+<!--		<table tableName="defence_device" domainObjectName="DefenceDevice">
+			<generatedKey column="defence_id, device_id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+<!--		<table tableName="defence_user" domainObjectName="DefenceUser">
+			<generatedKey column="host_id, user_id, defence_id" sqlStatement="Mysql" identity="false"/>
+		</table>
+
+		<table tableName="trigger_condition_user" domainObjectName="TriggerConditionUser">
+			<generatedKey column="host_id, user_id, trigger_id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+<!--
+
+
+
+		<table tableName="trigger_panel" domainObjectName="TriggerPanel">
+			<generatedKey column="id" sqlStatement="Mysql" identity="false"/>
+		</table>
+
+		<table tableName="scene" domainObjectName="Scene">
+			<generatedKey column="id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+<!--		<table tableName="defence_device" domainObjectName="DefenceDevice">
+			<generatedKey column="defence_id,device_id" sqlStatement="Mysql" identity="false"/>
+		</table>-->
+
+
+
+
+		<!--<table tableName="host_upgrade" domainObjectName="HostUpgrade" delimitAllColumns="">-->
+			<!--<generatedKey column="edition" sqlStatement="Mysql" identity="false" />-->
+		<!--</table>-->
+
+		<!--<table tableName="host_upgrade_log" domainObjectName="HostUpgradeLog">-->
+			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type="post" />-->
+		<!--</table>-->
+
+		<!--<table tableName="trigger_condition_json" domainObjectName="TriggerConditionJson">-->
+			<!--<generatedKey column="id,trigger_id,idx" sqlStatement="Mysql" identity="false"/>-->
+		<!--</table>-->
+
+		<!--<table tableName="trigger_panel_task" domainObjectName="TriggerPanelTask">-->
+			<!--<generatedKey column="trigger_id,click_mode,task_id,idx" sqlStatement="Mysql" identity="false"/>-->
+		<!--</table>-->
+
+
+		<table tableName="user" domainObjectName="User">
+			<generatedKey column="id" sqlStatement="Mysql" identity="false"/>
+		</table>
+
+
+
+        </context>
+    </generatorConfiguration>

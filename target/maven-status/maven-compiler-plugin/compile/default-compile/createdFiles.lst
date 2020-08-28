@@ -1,0 +1,8 @@
+org\ec\test\entity\UserExample$Criteria.class
+org\ec\test\entity\UserExample$GeneratedCriteria.class
+org\ec\test\mapper\UserMapper.class
+org\ec\test\entity\UserExample.class
+org\ec\test\entity\User$Column.class
+org\ec\test\entity\User.class
+org\ec\test\entity\User$Builder.class
+org\ec\test\entity\UserExample$Criterion.class
